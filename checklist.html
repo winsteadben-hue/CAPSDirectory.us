@@ -428,10 +428,9 @@
   resetQuiz();
   renderQuestion();
 
-  // Always restart fresh if the browser restores this page from bfcache —
-  // stale quiz state from a previous visit is more confusing than starting over.
-  window.addEventListener('pageshow', function(e){
-    if (!e.persisted) return;
+  // Always restart fresh whenever this page is shown — stale mid-quiz state
+  // from a previous visit is more confusing than starting over.
+  window.addEventListener('pageshow', function(){
     resetQuiz();
     renderQuestion();
   });
