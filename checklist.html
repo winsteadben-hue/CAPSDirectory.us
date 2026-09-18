@@ -405,6 +405,18 @@
   };
 
   renderQuestion();
+
+  // If Chrome/Edge restores this page from back-forward cache (e.g. the visitor
+  // used the browser's own Back/Forward button), force a clean repaint of
+  // whatever question or results should currently be showing.
+  window.addEventListener('pageshow', function(e){
+    if (!e.persisted) return;
+    if (document.getElementById('results-view').style.display === 'block') {
+      showResults();
+    } else {
+      renderQuestion();
+    }
+  });
 </script>
 
 </body>
