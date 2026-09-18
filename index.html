@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find a Certified Aging-in-Place Specialist (CAPS) | NAHB Credential Search</title>
+<meta name="description" content="Search NAHB's official directory of Certified Aging-in-Place Specialists (CAPS) and other credentialed home building professionals by credential and location.">
+
+<!-- ============================================================
+  ADSENSE SETUP (do this once your AdSense account is approved):
+  1. Uncomment the script tag below and replace ca-pub-XXXXXXXXXXXXXXXX
+     with your real publisher ID.
+  2. Each <div class="ad-slot"> below has an <ins class="adsbygoogle">
+     placeholder inside an HTML comment — uncomment those once you
+     have real ad-unit slot IDs from your AdSense dashboard.
+  3. Add an ads.txt file at your domain root:
+     google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+  4. AdSense requires a visible Privacy Policy — a placeholder link
+     is in the footer; replace /privacy.html with a real page before
+     applying.
+============================================================= -->
+<!--
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --stone:#F0EEE6;
+    --stone-deep:#E7E3D8;
+    --ink:#1E2A2E;
+    --ink-soft:#4A5A5E;
+    --brass:#A2793E;
+    --brass-deep:#8A6531;
+    --sage:#48665C;
+    --sage-deep:#33463F;
+    --line:#D8D2C2;
+    --white:#FFFFFF;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--stone);
+    color:var(--ink);
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    line-height:1.15;
+    margin:0 0 0.5em 0;
+    color:var(--ink);
+  }
+  p{margin:0 0 1em 0;}
+  a{color:var(--sage-deep);}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- Ad slots ---------- */
+  .ad-slot{
+    border:1px dashed #B7AF9A;
+    background:#FBFAF6;
+    color:#8B8474;
+    font-size:12px;
+    letter-spacing:0.02em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:14px;
+    border-radius:2px;
+  }
+  .ad-slot span{opacity:0.8;}
+  .ad-top{min-height:60px; margin:0 auto; max-width:1080px;}
+  .ad-inline{min-height:120px; margin:48px 0;}
+  .ad-rail{min-height:250px;}
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 24px;
+    max-width:1080px;
+    margin:0 auto;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-family:'Source Serif 4', serif;
+    font-size:22px;
+    font-weight:700;
+    color:var(--ink);
+    text-decoration:none;
+    letter-spacing:-0.01em;
+  }
+  .brand em{
+    font-style:normal;
+    color:var(--brass-deep);
+  }
+  .safehome-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--sage-deep);
+    color:var(--white);
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:3px;
+    font-size:14px;
+    font-weight:500;
+    transition:background 0.15s ease;
+  }
+  .safehome-cta:hover{background:var(--sage);}
+  .safehome-cta .sub{opacity:0.8; font-weight:400;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:64px 0 48px 0;
+  }
+  .hero .kicker{
+    color:var(--brass-deep);
+    font-size:14px;
+    font-weight:500;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:clamp(32px, 4.2vw, 46px);
+    max-width:16ch;
+  }
+  .hero p.lede{
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:56ch;
+  }
+
+  /* ---------- Search card ---------- */
+  .search-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px;
+    margin-top:32px;
+    box-shadow:0 1px 2px rgba(30,42,46,0.04);
+  }
+  .search-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  @media (max-width:640px){
+    .search-grid{grid-template-columns:1fr;}
+  }
+  .field label{
+    display:block;
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .field select, .field input{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    font-size:15px;
+    font-family:inherit;
+    background:var(--white);
+    color:var(--ink);
+  }
+  .field select:focus, .field input:focus{
+    outline:2px solid var(--brass);
+    outline-offset:1px;
+    border-color:var(--brass);
+  }
+  .search-actions{
+    margin-top:20px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  button.search-btn{
+    background:var(--brass-deep);
+    color:var(--white);
+    border:none;
+    padding:13px 26px;
+    border-radius:3px;
+    font-size:15px;
+    font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+    transition:background 0.15s ease;
+  }
+  button.search-btn:hover{background:#734F26;}
+  .search-note{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Content sections ---------- */
+  section{padding:48px 0;}
+  .section-head{max-width:60ch; margin-bottom:32px;}
+  .section-head h2{font-size:28px;}
+  .section-head p{color:var(--ink-soft); font-size:16px;}
+
+  .cred-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+    gap:20px;
+  }
+  .cred-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:20px;
+  }
+  .cred-card .code{
+    font-family:'Source Serif 4', serif;
+    font-size:20px;
+    font-weight:700;
+    color:var(--brass-deep);
+  }
+  .cred-card p{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-top:8px;
+  }
+
+  /* ---------- SafeHome banner ---------- */
+  .safehome-banner{
+    background:var(--sage-deep);
+    color:var(--white);
+    border-radius:6px;
+    padding:36px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .safehome-banner h3{
+    color:var(--white);
+    font-size:24px;
+    margin-bottom:8px;
+  }
+  .safehome-banner p{
+    color:#D7E2DC;
+    max-width:46ch;
+    margin-bottom:0;
+  }
+  .safehome-banner a.btn{
+    background:var(--white);
+    color:var(--sage-deep);
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:3px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  /* ---------- Two-column layout with rail ad ---------- */
+  .with-rail{
+    display:grid;
+    grid-template-columns:1fr 300px;
+    gap:32px;
+  }
+  @media (max-width:800px){
+    .with-rail{grid-template-columns:1fr;}
+  }
+  .rail{position:sticky; top:24px; align-self:start;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0;
+    margin-top:24px;
+  }
+  footer p{
+    font-size:13px;
+    color:var(--ink-soft);
+    max-width:70ch;
+  }
+  footer .links{
+    display:flex;
+    gap:16px;
+    margin-top:12px;
+    font-size:13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="ad-slot ad-top wrap" style="margin-top:12px;">
+  <span>Advertisement — 728×90 leaderboard slot</span>
+  <!--
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#top">CAPS<em>Directory</em></a>
+    <nav style="display:flex; align-items:center; gap:18px;">
+      <a href="checklist.html" style="font-size:14px; color:var(--ink-soft); text-decoration:none;">Free Safety Checklist</a>
+      <a href="about.html" style="font-size:14px; color:var(--ink-soft); text-decoration:none;">About</a>
+      <a href="contact.html" style="font-size:14px; color:var(--ink-soft); text-decoration:none;">Contact</a>
+      <a class="safehome-cta" href="https://safehomepartners.com?utm_source=capsdirectory&utm_medium=referral&utm_campaign=header_cta" target="_blank" rel="noopener">
+        Need modifications done? <span class="sub">SafeHome Partners →</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="hero">
+      <div class="kicker">NAHB-credentialed professionals</div>
+      <h1>Find a Certified Aging-in-Place Specialist near you</h1>
+      <p class="lede">Search the National Association of Home Builders' official directory for CAPS-certified contractors and other credentialed home building professionals — filtered by the credential you need.</p>
+
+      <div class="search-card">
+        <div class="search-grid">
+          <div class="field">
+            <label for="designation">Credential</label>
+            <select id="designation">
+              <option value="CAPS" selected>CAPS — Certified Aging-in-Place Specialist</option>
+              <option value="CGR">CGR — Certified Graduate Remodeler</option>
+              <option value="CGB">CGB — Certified Graduate Builder</option>
+              <option value="CGP">CGP — Certified Green Professional</option>
+              <option value="CGA">CGA — Certified Graduate Associate</option>
+              <option value="GMB">GMB — Graduate Master Builder</option>
+              <option value="MIRM">MIRM — Master in Residential Marketing</option>
+              <option value="">All credentials</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="keyword">City, state, or name (optional)</label>
+            <input type="text" id="keyword" placeholder="e.g. Rocky Mount, NC">
+          </div>
+        </div>
+        <div class="search-actions">
+          <button class="search-btn" onclick="openNahbSearch()">Search NAHB directory</button>
+          <span class="search-note">Opens NAHB's official site in a new tab, pre-filtered by credential.</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot ad-inline">
+      <span>Advertisement — in-content 336×280 or responsive slot</span>
+      <!--
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+    </div>
+
+    <div class="with-rail">
+      <div>
+        <section style="padding-top:0;">
+          <div class="section-head">
+            <h2>What the credentials mean</h2>
+            <p>NAHB certifications are earned through coursework, field experience, and continuing education. Here's what the most common ones cover.</p>
+          </div>
+          <div class="cred-grid">
+            <div class="cred-card">
+              <div class="code">CAPS</div>
+              <p>Certified Aging-in-Place Specialist. Trained in home modifications that let people live safely and independently as they age — wider doorways, zero-step entries, grab bars, walk-in showers.</p>
+            </div>
+            <div class="cred-card">
+              <div class="code">CGR</div>
+              <p>Certified Graduate Remodeler. Demonstrates experience and business skill specific to remodeling projects, from planning through completion.</p>
+            </div>
+            <div class="cred-card">
+              <div class="code">CGB</div>
+              <p>Certified Graduate Builder. Focused on new-construction expertise, project management, and building-science fundamentals.</p>
+            </div>
+            <div class="cred-card">
+              <div class="code">CGP</div>
+              <p>Certified Green Professional. Covers energy-efficient, sustainable building and remodeling practices.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="safehome-banner" style="background:var(--white); border:1px solid var(--line); color:var(--ink);">
+            <div>
+              <h3 style="color:var(--ink);">Not sure where to start?</h3>
+              <p style="color:var(--ink-soft);">Take our free 2-minute home safety checklist — no sign-up required — to see a rough sense of fall-risk and accessibility concerns before you search for a contractor.</p>
+            </div>
+            <a class="btn" href="checklist.html" style="background:var(--brass-deep); color:var(--white);">Take the free checklist →</a>
+          </div>
+        </section>
+
+        <section>
+          <div class="safehome-banner">
+            <div>
+              <h3>Already know you need home modifications?</h3>
+              <p>SafeHome Partners connects families with vetted contractors and runs in-home aging-in-place assessments — no need to search on your own.</p>
+            </div>
+            <a class="btn" href="https://safehomepartners.com?utm_source=capsdirectory&utm_medium=referral&utm_campaign=banner" target="_blank" rel="noopener">Visit SafeHome Partners</a>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-head">
+            <h2>How this search works</h2>
+            <p>This page is an independent tool that deep-links into NAHB's own public directory — it is not affiliated with, endorsed by, or operated by NAHB. Results, listings, and contractor data all come directly from nahb.org. Use NAHB's own filters on the results page to narrow further by state or city.</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="rail">
+        <div class="ad-slot ad-rail">
+          <span>Advertisement — 300×250 rail slot</span>
+          <!--
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>CAPSDirectory (placeholder name) is an independent search tool and is not affiliated with, endorsed by, or sponsored by the National Association of Home Builders (NAHB). All contractor listings and credential data belong to and are hosted by NAHB at nahb.org.</p>
+    <div class="links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://safehomepartners.com?utm_source=capsdirectory&utm_medium=referral&utm_campaign=footer" target="_blank" rel="noopener">SafeHome Partners</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function openNahbSearch(){
+    var designation = document.getElementById('designation').value;
+    var keyword = document.getElementById('keyword').value.trim();
+    var base = "https://www.nahb.org/nahb-community/nahb-directories/professionals-with-home-building-credentials-directory";
+    var hashParts = ["sort=%40lastname%20ascending", "numberOfResults=25"];
+    if (designation) {
+      hashParts.push("f:Designation=[" + designation + "]");
+    }
+    if (keyword) {
+      hashParts.push("q=" + encodeURIComponent(keyword));
+    }
+    var url = base + "#" + hashParts.join("&");
+    window.open(url, "_blank", "noopener");
+  }
+</script>
+
+</body>
+</html>
