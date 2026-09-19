@@ -301,11 +301,11 @@
   var current = 0;
   var answers = {};
   var flags = [];
-  var history = [];
+  var quizHistory = [];
   var selected = null; // currently highlighted option
 
   function resetQuiz(){
-    current = 0; answers = {}; flags = []; history = []; selected = null;
+    current = 0; answers = {}; flags = []; quizHistory = []; selected = null;
     document.getElementById('results-view').style.display = 'none';
     document.getElementById('quiz-view').style.display = 'block';
   }
@@ -332,8 +332,8 @@
     selected = null;
     var q = QUESTIONS[idx];
 
-    document.getElementById('q-num').textContent = history.length + 1;
-    document.getElementById('progress-fill').style.width = Math.min(95, (history.length / 12) * 100 + 8) + '%';
+    document.getElementById('q-num').textContent = quizHistory.length + 1;
+    document.getElementById('progress-fill').style.width = Math.min(95, (quizHistory.length / 12) * 100 + 8) + '%';
     document.getElementById('q-text').textContent = q.text;
     document.getElementById('select-hint').style.display = 'none';
 
@@ -352,7 +352,7 @@
       optsEl.appendChild(btn);
     });
 
-    document.getElementById('back-link').className = history.length > 0 ? 'back-link' : 'back-link hidden';
+    document.getElementById('back-link').className = quizHistory.length > 0 ? 'back-link' : 'back-link hidden';
   }
 
   document.getElementById('next-btn').onclick = function(){
@@ -363,14 +363,14 @@
     var q = QUESTIONS[current];
     answers[q.id] = selected.points;
     if (selected.flag) flags.push(selected.flag);
-    history.push(current);
+    quizHistory.push(current);
     current = current + 1;
     renderQuestion();
   };
 
   document.getElementById('back-link').onclick = function(){
-    if (history.length === 0) return;
-    var prevIdx = history.pop();
+    if (quizHistory.length === 0) return;
+    var prevIdx = quizHistory.pop();
     var q = QUESTIONS[prevIdx];
     if (answers[q.id] !== undefined) {
       var wasFlag = q.options.filter(function(o){ return o.points === answers[q.id] && o.flag; })[0];
