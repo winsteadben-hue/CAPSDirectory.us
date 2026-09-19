@@ -54,7 +54,7 @@
 
   .card{background:var(--white); border:1px solid var(--line); border-radius:4px; padding:28px; margin-top:24px; box-shadow:0 1px 2px rgba(30,42,46,0.04);}
 
-  .progress-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; font-size:13px; color:var(--ink-soft);}
+  .progress-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; font-size:15px; font-weight:500; color:var(--ink);}
   .progress-track{height:6px; background:var(--stone-deep); border-radius:3px; overflow:hidden; margin-bottom:24px;}
   .progress-fill{height:100%; background:var(--sage-deep); border-radius:3px; transition:width 0.2s ease;}
 
@@ -328,7 +328,7 @@
     selected = null;
     var q = QUESTIONS[idx];
 
-    document.getElementById('progress-label').textContent = 'Question ' + (history.length + 1) + ' of ~12';
+    document.getElementById('progress-label').textContent = 'Question ' + (history.length + 1) + ' of 12';
     document.getElementById('progress-fill').style.width = Math.min(95, (history.length / 12) * 100 + 8) + '%';
     document.getElementById('q-text').textContent = q.text;
 
@@ -431,8 +431,6 @@
   resetQuiz();
   renderQuestion();
 
-  // Always restart fresh whenever this page is shown — stale mid-quiz state
-  // from a previous visit is more confusing than starting over.
   window.addEventListener('pageshow', function(){
     resetQuiz();
     renderQuestion();
